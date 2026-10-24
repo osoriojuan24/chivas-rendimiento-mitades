@@ -1,0 +1,14 @@
+﻿partido_id,fecha,rival,localia,balance_1t,balance_2t,balance_cambio,goles_favor_descanso,goles_contra_descanso,goles_favor_final,goles_contra_final,situacion_descanso,resultado_final,conservo_victoria,delta_xg,delta_xga
+16317929,2026-07-18 19:07:00-06:00,CD Toluca,Local,-1.08,0.21,1.29,0,1,0,2,Perdiendo,Derrota,No aplica,0.10,-1.19
+16317933,2026-07-25 17:07:00-06:00,FC Juárez,Local,0.71,0.95,0.24,0,0,1,0,Empatando,Victoria,No aplica,-0.02,-0.26
+16317943,2026-07-31 19:00:00-06:00,Club Puebla,Visitante,0.70,0.56,-0.14,0,1,1,1,Perdiendo,Empate,No aplica,-0.57,-0.43
+16317885,2026-08-16 19:10:00-06:00,Santos Laguna,Visitante,-0.11,0.98,1.09,0,0,1,0,Empatando,Victoria,No aplica,1.34,0.25
+16317892,2026-08-22 19:30:00-06:00,Club Tijuana,Local,1.57,-0.42,-1.99,3,0,5,2,Ganando,Victoria,Sí,-1.77,0.22
+16317912,2026-08-29 17:00:00-06:00,CF Pachuca,Visitante,1.07,-1.07,-2.14,1,0,1,1,Ganando,Empate,No,-1.01,1.13
+16317920,2026-09-05 17:00:00-06:00,Atlético San Luis,Visitante,0.23,-0.34,-0.57,2,0,3,0,Ganando,Victoria,Sí,-0.42,0.15
+16317950,2026-09-13 19:07:00-06:00,Pumas UNAM,Local,-0.24,0.60,0.84,1,0,3,0,Ganando,Victoria,Sí,0.64,-0.20
+16317963,2026-09-19 21:15:00-06:00,Club América,Visitante,0.70,-0.88,-1.58,2,0,2,2,Ganando,Empate,No,-0.72,0.86
+16317969,2026-09-26 17:07:00-06:00,Querétaro FC,Local,-0.88,0.13,1.01,0,1,0,2,Perdiendo,Derrota,No aplica,0.25,-0.76
+16317980,2026-10-10 19:00:00-06:00,Atlas FC,Visitante,0.63,-0.23,-0.86,0,0,1,1,Empatando,Empate,No aplica,0.80,1.66
+16318009,2026-10-17 17:07:00-06:00,Tigres UANL,Local,0.07,1.11,1.04,0,1,1,1,Perdiendo,Empate,No aplica,0.96,-0.08
+16317991,2026-10-20 18:07:00-06:00,Club Necaxa,Local,0.54,-0.38,-0.92,0,0,1,0,Empatando,Victoria,No aplica,-0.52,0.40

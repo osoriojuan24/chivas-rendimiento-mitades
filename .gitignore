@@ -1,0 +1,26 @@
+# Archivos de macOS
+.DS_Store
+
+# Archivos temporales de Python
+__pycache__/
+*.py[cod]
+
+# Entornos virtuales
+.venv/
+venv/
+env/
+
+# Configuración local del editor
+.vscode/
+
+# Credenciales y variables de entorno
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# CSV auxiliares de la extracción
+chivas_primer_tiempo.csv
+chivas_segundo_tiempo.csv
+chivas_full_time.csv
+chivas_completo.csv
