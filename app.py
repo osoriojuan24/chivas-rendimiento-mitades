@@ -209,7 +209,7 @@ with tab_resumen:
 
     st.caption(
         "Balance = xG de Chivas − xGA (xG del rival).  \n"
-        "Cambio del Balance = Balance del segundo tiempo − Balance del primero.  \n"
+        "Cambio del Balance = Balance del segundo tiempo − Balance del primer tiempo.  \n"
     )
 
     # Aplicar exactamente los mismos partidos que en las otras gráficas
@@ -932,20 +932,15 @@ with tab_resumen:
                 "Puntos por debajo de la diagonal: menor número de goles anotados que valor en xG.  "
             )
             
-
-            st.caption(
-                "Goles − xG describe lo anotado respecto a lo estimado "
-            )
-
             st.caption("Fuente: StatsHub · Datos de Chivas por mitad.")        
 
     st.divider()
     st.subheader("Peligro generado por mitad")
     st.caption(
         "Cada grupo representa un partido: primer tiempo a la izquierda "
-        "y segundo tiempo a la derecha. "
+        "y segundo tiempo a la derecha.  \n"
         "Chivas se muestra en rojo y sus rivales en gris; "
-        "el tono claro corresponde al segundo tiempo. "
+        "el tono claro corresponde al segundo tiempo.   \n"
         "Ambas gráficas usan la misma escala y los filtros de localía y situación al descanso"
     )
 
