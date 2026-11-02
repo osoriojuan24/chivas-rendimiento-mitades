@@ -105,6 +105,45 @@ python extraccion_chivas_statshub.py
 Este proceso consulta StatsHub y sobrescribe los CSV generados
 en la carpeta del script.
 
+## Actualización 02/noviembre/2026
+## Actualización de datos
+
+Ejecutar:
+
+```bash
+python extraccion_chivas_statshub.py
+```
+
+El script permite elegir entre dos modos:
+
+- `api`: consulta directamente StatsHub. Si recibe un HTTP 403,
+  se detiene sin actualizar los CSV.
+- `local`: procesa respuestas JSON guardadas manualmente desde
+  el navegador, como alternativa cuando la consulta directa falla.
+
+### Preparación del modo local
+
+Abrir las siguientes consultas y guardar el contenido JSON completo
+en la misma carpeta que `extraccion_chivas_statshub.py`:
+
+- [Primer tiempo](https://www.statshub.com/api/team/1938/performance?tournamentId=11621&limit=season&location=all&season=2026&eventHalf=1ST):
+  `statshub_1ST.json`
+- [Segundo tiempo](https://www.statshub.com/api/team/1938/performance?tournamentId=11621&limit=season&location=all&season=2026&eventHalf=2ND):
+  `statshub_2ND.json`
+- [Partido completo](https://www.statshub.com/api/team/1938/performance?tournamentId=11621&limit=season&location=all&season=2026&eventHalf=ALL):
+  `statshub_ALL.json`
+
+Actualizar los tres archivos para cada jornada antes de ejecutar
+el script en modo `local`. Estos JSON no se incluyen en el repositorio.
+
+### Actualización del dashboard publicado
+
+Tras ejecutar el script correctamente, revisar el dashboard local
+y subir al repositorio los dos CSV que utiliza la aplicación:
+
+- `chivas_data_por_tiempo.csv`
+- `chivas_balance_xG.csv`
+
 
 ## Autor
 

@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 import requests
 import pandas as pd
 
@@ -16,23 +19,69 @@ PARAMS_BASE = {
     "season": SEASON,
 }
 
+# "api": descargar directamente de StatsHub.
+# "local": leer los tres JSON guardados desde el navegador.
+MODO_EXTRACCION = input(
+    "¿Cómo quieres obtener los datos? Opciones: 'api' o 'local': "
+).strip().lower()
+
+while MODO_EXTRACCION not in {"api", "local"}:
+    MODO_EXTRACCION = input(
+        "Opción inválida. Escribe 'api' o 'local': "
+    ).strip().lower()
 
 def obtener_datos_chivas(periodo):
-    """Descargar y organizar los datos de ALL, 1ST o 2ND."""
+    if MODO_EXTRACCION == "api":
+        params = {
+            **PARAMS_BASE,
+            "eventHalf": periodo,
+        }
 
-    if periodo not in {"ALL", "1ST", "2ND"}:
-        raise ValueError("El periodo debe ser ALL, 1ST o 2ND.")
+        response = requests.get(URL, params=params, timeout=30)
 
-    # Crear los parámetros de esta consulta sin modificar PARAMS_BASE
-    params = {
-        **PARAMS_BASE,
-        "eventHalf": periodo,
-    }
+        if response.status_code == 403:
+            raise RuntimeError(
+                "StatsHub rechazó la consulta con HTTP 403. "
+                "Si aparece la verificación de Cloudflare, actualiza "
+                "los tres JSON desde el navegador y cambia "
+                "MODO_EXTRACCION a 'local'."
+            )
 
-    response = requests.get(URL, params=params, timeout=30)
-    response.raise_for_status()
+        response.raise_for_status()
+        contenido = response.json()
 
-    contenido = response.json()
+        print(f"Datos descargados desde la API: {periodo}")
+
+    elif MODO_EXTRACCION == "local":
+        ruta_json = (
+            Path(__file__).resolve().parent
+            / f"statshub_{periodo}.json"
+        )
+
+        if not ruta_json.is_file():
+            raise FileNotFoundError(
+                f"No se encontró el archivo: {ruta_json}"
+            )
+
+        with ruta_json.open("r", encoding="utf-8-sig") as archivo:
+            contenido = json.load(archivo)
+
+        print(f"Leyendo archivo local: {ruta_json.name}")
+
+    else:
+        raise ValueError(
+            "MODO_EXTRACCION debe ser 'api' o 'local'."
+        )
+
+    # Validación compartida por ambos modos
+    if (
+        not isinstance(contenido, dict)
+        or not isinstance(contenido.get("data"), list)
+    ):
+        raise ValueError(
+            f"La respuesta de {periodo} no contiene "
+            "una lista de partidos en 'data'."
+        )
     df = pd.json_normalize(contenido["data"])
 
     if df.empty:
